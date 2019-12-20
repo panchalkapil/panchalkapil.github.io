@@ -1,1 +1,121 @@
-<h1>Coming Soon</h1>
+
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Kapil Panchal">
+        <meta name="description" content="The personal site and résumé of Kapil Panchal">
+
+        <title>Kapil Panchal &sdot; Technical Writer</title>
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="canonical" href="https://panchalkapil.github.io/">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Pacifico&display=swap');
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #0f1c70;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            nav {
+                height: 56px;
+                line-height: 56px;
+                padding-left: 8px;
+                padding-right: 8px;
+                z-index: 999;
+            }
+            nav ul {
+                display: inline-block;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            nav ul.right {
+                float: right;
+            }
+            nav ul li {
+                display: inline-block;
+                margin: 0 8px;
+            }
+            nav .logo img {
+                height: 20px;
+                vertical-align: middle;
+            }
+
+            main {
+                width: 100%;
+                max-width: 49rem;
+                margin: 0 auto;
+                margin-top: 8rem;
+                padding: 1rem;
+            }
+
+            h1 {
+                color: #fff;
+                font-family: 'Pacifico', cursive;
+                font-size: 40px;
+                font-weight: normal;
+                margin: 0;
+            }
+            h3 {
+                color: #fff;
+                font-weight: 300;
+                font-size: 24px;
+                margin: 0;
+                opacity: 0.8;
+                padding: 0;
+            }
+            .background {
+                position:  absolute;
+                display:  block;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Kapil Panchal</h1>
+            <h3>Technical Writer</h3>
+        </main>
+        
+        <canvas class="background"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+        <script>
+            window.onload = function() {
+                var particles = Particles.init({
+                    selector: '.background',
+                    color: '#f2f2f2',
+                    connectParticles: true,
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            options: {
+                                maxParticles: 200,
+                                connectParticles: false
+                            }
+                        }, {
+                            breakpoint: 425,
+                            options: {
+                                maxParticles: 0
+                            }
+                        }
+                    ]
+                });
+            };
+        </script>
+    </body>
+</html>

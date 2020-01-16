@@ -1,0 +1,154 @@
+
+<html> 
+<head>
+ 
+    <title>Imbricate Cryptography and its importance</title> 
+	<style>
+		p {
+			text-align: justify;
+		}
+	</style>
+</head> 
+
+<body> 
+<div>
+ <h3>Imbricate Cryptography and it's importance.</h3> 
+</div>
+
+<div>
+<h4>Introduction to Cryptography:</h4>
+    <p>Security, the term itself defines its importance when this word strikes in our mind. Security and Privacy are the two such things which are being valued beyond the level in any industry or sector. This is always been a serious concern especially for Electronic communication and e-Business. It is quite surprising to know that about 2.5 quintillion bytes of data created rip-roaringly each day on web. And it is also estimated that by 2025, about 463 exabytes of data will be created each day globally, i.e, 212,765,957 DVDs per day. Therefore there is no doubt that the Network security measures are very much required to protect data during its transmission. Industries try all the possible ways to accomplish the security in their business. Hackers always stay active to breach the secure barrier and steal the data to make fraudulent acts. Despite these criticisms, there were solutions for securing the data. And one of them is Imbricate Cryptography. </p> 
+    <p>But Before diving into the core subject, we should be familiar with what is cryptography.</p> 
+</div>
+<div>
+<b>What is Cryptography? </b>
+
+<p>Cryptography is a process of encoding the actual data into unreadable format to achieve security. Basically Cryptography involves two processes namely Encoding/Encryption and Decoding/Decryption the data.</p>
+
+<ul>
+  <li> In Encoding process the data is changed to unreadable format. This is also known as Cipher text. </li>
+  <li>In Decoding process the unreadable format of data is converted back to its original form. This is also known as Decipher text.
+</li>
+</ul>	
+
+</div>
+
+<div>
+<b>Types of Cryptography:</b>
+<p>There are basically two types of Cryptography: </p>
+
+<ul>
+  <li>Asymmentric cryptography</li>
+  <li>Symmetric cryptography
+</li>
+</ul>
+
+<p>Inorder to communicate more securely, the sender and receiver use keys during encryption and decryption. If a sender and receiver use different keys or multiple keys then it is called as Asymmentric cryptography or Public key encryption. Whereas if a sender and receiver use single or same key, then it is called as Symmetric cryptography or secret key encryption.
+</p>
+
+<div>
+<b>What is Imbricate Cryptography?</b>
+
+<p>Imbricate Cryptography is a new technique of encrypting the data on the channel by using layered approach. That means it involves 3 layers of encryption and decryption which perplexes the cracker. This is a Symmetric type of cryptography in which the key is implanted in the message. Therefore the message cannot be recovered without placing the correct key at the end point.
+</p>
+</div>
+<div>
+<b>Prerequisites:</b>
+<p>
+Before diving into it, it is suggested that you should have the basic knowledge of: 
+</p>
+<ul>
+  <li>Truth tables,</li>
+  <li>XOR operation,</li>
+  <li>1's and 2's complement and negation operations,</li>
+  <li>Decimal to Binary conversion and vice versa.</li>
+</ul>
+
+</div>
+
+<div>
+<b>Process of Encryption:</b>
+<p>The process involves three phases, each of these have their own importance.</p>
+<span>Layer-1:</span>
+<p>This layer is called Mapping Layer. Here the characters get jumbled with other characters present in the same set. In general, we have two types of sets here: repeated characters set and non-repeated characters set.  English words usually consist of alphabets in which the probability of few characters like a,e,i,o,s,t occur maximum times. These characters are called repeated characters. And the remaining alphabets comes under non-repeated characters which occur occassionally. Likewise all the characters, numbers are jumbled and mapped in their own set, which eventually completes the first layer. </p>
+<p>One thing to note here is that the password or key doesnot include in this
+layer.
+</p>
+
+</div>
+
+<div>
+<span>Layer-2:</span>
+<p>This layer is called as the core-encoding layer because this layer makes use of bitwise logics and ASCII format for encoding purpose. The characters which are formed from layer-1, are then transmuted to ASCII format. Now the first character of the message is XORed with negated ASCII character of the first character of the password. Same process is done for rest of the message.
+</p>
+
+<p>The formula for this encoding is: </br>
+newChar = (oldChar) XOR (~key[i]).
+</p>
+</div>
+<div>
+<span>Layer-3:</span>
+<p>In this layer the ASCII characters formed in Layer-2 are converted into equivalent Binary format and the output is stored as a bitmap file. Hence this layer is called as "Bitmap-conversion layer".
+</p>
+
+</div>
+
+<div>
+<p>Let us practically understand the above layers with a simple example.</p>
+<p>
+Suppose we have a message X ={hello}; </p></br>
+Key K={hai}; 
+<p>
+ Consider the following table for mapping the characters: 
+</p>
+<img src="cryptographyTbl.png" alt="Cryptography Table">
+
+
+</div></br>
+<div>
+<span>Layer-1:</span>
+<p>From the table the characters are jumbled as follows: </p></br>
+<span>X1={ltjji};</span>
+
+</div></br>
+<div>
+<span>Layer-2:</span>
+<p>X2 = X1 ^(~K);</p>
+<p>X2 = {l^~h, t^~a, j^~i, j^~h, i^~a}; </p>
+<p>The binary values for above set is X2 = {11111011, 11101010, 11111100, 11111101, 11101111}.</p>
+
+</div>
+<div>
+<span>Layer-3:</span>
+
+<p>Now finally these are transmuted into character format in the form of Bitmap file.</p>
+</div>
+
+<div>
+<p><b>Note:</b> Here XOR operation is denoted by <b>^</b> symbol. 1s compliment operation is denoted by <b>'~'</b> symbol.</p>
+<p> Moreover, the important thing to note here is that during encryption and decryption processes, the layer 1 is not dependent on the user Key, however the remaining two layers totally dependent on the Key.
+</p>
+
+</div>
+
+<div>
+<b>Process of Decryption:</b>
+<p>The process of decryption is exactly the reverse of the above encryption process.</p>
+<div>
+<span>Layer-1:</span>
+<p>In this layer the bits of bitmap file are regrouped and restructured to form ASCII characters. Because of this, it is called  character-restructuring layer.
+</p>
+</div>
+<div>
+<span>Layer-2:</span>
+<p>This layer is known as core-decoding layer. Here the above ASCII characters are decoded using the same XOR logic used in encryption. Remember the message can be retrieved only if you use the same key as used in encryption.</p>
+
+</div>
+<div>
+<span>Layer-3:</span>
+<p>This layer is known as re-mapping layer. Here the resultant characters are replaced with equivalent character present in column 1 of the Table. And finally the Original message is retrieved.</p>
+</div>
+</div>
+
+</body> 
+</html> 

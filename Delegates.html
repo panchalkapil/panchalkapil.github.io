@@ -1,0 +1,182 @@
+
+<html>
+<head>
+<title>Delegates in C#.</title>
+
+<style>
+		p {
+			text-align: justify;
+			font-family:calibri;
+           font-size:18;
+		}
+		
+		body{
+			box-shadow: 0 4px 380px 0 rgba(0, 0, 0, 1.2), 0 6px 20px 0 rgba(0, 0, 0, 2.19);
+		}
+		pre.double {border-style: double;
+		
+		}
+		pre {overflow:auto; max-width:100%}
+		
+		b{
+			font-family:calibri;
+            font-size:23;
+		}
+		
+</style> 
+
+</head>
+<body bgcolor="#ccffee"  style="
+    border-style: double;
+    margin: 176px;">
+	
+<div style="
+    margin: 83px;
+">	
+<div>
+<h2><b>Delegates in C#.</b></h2>
+
+
+<p>Delegates in C# are similar like Pointers in C/C++, and these are type safe, secure when compare to Pointers.
+Whoever faced this word 'Delegates' at beginning could have felt confused but believe me this is very simple to understand. In simple words, delegate holds the reference of several methods and invokes/calls them whenever needed. 
+</p>
+
+</div>
+
+<div>
+<p>Let me put you with real world example to understand it better.</p>
+
+<p>For Example you are in a Bus station, and suddenly you hear fire alarm how would you react to it? You will run immediately out of the station, right. Now lets put this scenario in delegates.
+</p>
+
+<p>The fire alarm you heard is nothing but an event. Once you heard that alarm you yourself initiated a run() function to escape from there.
+</p>
+
+<p>But when you hear an announcement about your Bus you reserved, you don't escape but move to that platform to catch the Bus.
+ Similarly, if you hear an announcement of your name for someone's phonecall, you will go straight a way to inquiry counter to attend the call.</p>
+</div>
+
+<div>
+
+<p>Therefore, in real-world we also react differently based on the situation or event. In Programming, delegates does the same thing. We create number of appropriate functions and execute them based on particular events.</p>
+
+</div>
+
+<div>
+<h3><b>Delegates in Programming :</b></h3>
+
+<p>Basically a delegate consist of 3 steps:
+</p>
+<ul style="font-family:calibri;font-size:18">
+<li>Declaration</li>
+<li>Instantiation</li>
+<li>Invocation</li>
+</ul>
+
+</div>
+<div>
+<p>Now Open your visual studio and create a new console application and follow the coding shown below:</p>
+<pre style="padding-left: 6%;font-weight: bold; width=100%;" class="double">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace ConsoleApplication2
+{
+    public class DelegateExample
+    {
+        //Declaration
+        //Creating Delegates with no parameters and no return type.
+        public delegate void FirstDelegate();
+ 
+        public void func1()
+        {
+            Console.WriteLine("I am Function 1");
+        }
+        public void func2()
+        {
+            Console.WriteLine("I am Function 2");
+        }
+        public void func3()
+        {
+            Console.WriteLine("I am Function 3");
+        }
+    }
+ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+      DelegateExample testdelegate = new DelegateExample();
+//Instantiation
+      DelegateExample.FirstDelegate fd1 = new DelegateExample.FirstDelegate(testdelegate.func1);
+			
+      DelegateExample.FirstDelegate fd2 = new DelegateExample.FirstDelegate(testdelegate.func2);
+			
+      DelegateExample.FirstDelegate fd3 = new DelegateExample.FirstDelegate(testdelegate.func3);
+ 
+//Invocation 
+           fd1();
+            fd2();
+            fd3();
+ 
+            Console.ReadKey();
+        }
+    }
+}
+
+</pre>
+</div>
+<div>
+<p>The output for the above program of delegates will look like this below.</p>
+
+</br>
+<b>OUTPUT:</b>
+<p>I am Function 1</p>
+<p>I am Function 2</p>
+<p>I am Function 3</p>
+
+<p><b>What we did in the above Example Program?</b></p>
+<ul>
+<li style="font-family:calibri;font-size:18">In the above example we have created a delegate without passing parameters.</br>
+</li>
+<pre style="padding-left: 6%;font-weight: bold;">public delegate void FirstDelegate();</pre>
+<li style="font-family:calibri;font-size:18">Then after we have created 3 functions.</br>
+</li>
+<pre style="padding-left: 6%;font-weight: bold;">public void func1()</pre>
+<pre style="padding-left: 6%;font-weight: bold;">public void func2()</pre>
+<pre style="padding-left: 6%;font-weight: bold;">public void func3()</pre>
+
+
+<li style="font-family:calibri;font-size:18">And then inside the main function, we have created an object of delegate. One important thing here to remember about delegate is, it always require a function during initialization.
+</li>
+<pre style="font-weight: bold;">DelegateExample.FirstDelegate fd1 = new DelegateExample.FirstDelegate(testdelegate.func1);
+</pre>
+<pre style="font-weight: bold;">DelegateExample.FirstDelegate fd2 = new DelegateExample.FirstDelegate(testdelegate.func2);</pre>
+<pre style="font-weight: bold;">DelegateExample.FirstDelegate fd3 = new DelegateExample.FirstDelegate(testdelegate.func3);
+</pre>
+
+</ul>
+<p>And at the end we have called the delegates to execute the functions.</p>
+<pre style="padding-left: 6%;font-weight: bold;">fd1();</pre>
+<pre style="padding-left: 6%;font-weight: bold;">fd2();</pre>
+<pre style="padding-left: 6%;font-weight: bold;">fd3();</pre>
+</div></br>
+
+<b>Some important points to remember about Delegates:</b>
+<ul style="font-family:calibri;font-size:18">
+<li>We can easily call multiple methods on a single event using delegates.</li>
+<li>It is not necessary for the methods to match the exact signature of the delegate.</li>
+<li>Delegates allows us to pass methods as parameter.</li>
+<li>It is used for asynchronous programming.</li>
+<li>It is useful when there is a need of creating anonymous function.</li>
+<li>These are also used to define callback methods.</li>
+</ul>
+
+</div>
+
+
+</body>
+</html>
